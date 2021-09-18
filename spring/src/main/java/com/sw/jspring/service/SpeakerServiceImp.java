@@ -4,15 +4,20 @@ import com.sw.jspring.model.Speaker;
 import com.sw.jspring.repository.SpeakerRepository;
 import com.sw.jspring.repository.HibernateSpeakerRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
 
-@Repository("speakerService")
+
+
+@Service("speakerService")
+//@Profile("dev")
 public class SpeakerServiceImp implements SpeakerService {
 
-    @Autowired
+
     private SpeakerRepository repository;
 
     public SpeakerServiceImp(){
@@ -27,6 +32,7 @@ public class SpeakerServiceImp implements SpeakerService {
         this.repository = spRepository;
     }
 
+    @Autowired
     public void setRepository(SpeakerRepository repository) {
         this.repository = repository;
     }
