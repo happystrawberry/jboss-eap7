@@ -16,6 +16,6 @@ public class Application {
         System.out.println(speakerservice.FindAll().get(0).getLastname());
         SpeakerService speakerservice2 = appContext.getBean("speakerService", SpeakerService.class );
         System.out.println(speakerservice);
-        System.out.println(speakerservice2);
+        System.out.println("seedNum: " + speakerservice2.FindAll().get(0).getSeednumber());
     }
 }
