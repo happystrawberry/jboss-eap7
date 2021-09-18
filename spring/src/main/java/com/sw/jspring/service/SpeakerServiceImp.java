@@ -3,12 +3,26 @@ package com.sw.jspring.service;
 import com.sw.jspring.model.Speaker;
 import com.sw.jspring.repository.SpeakerRepository;
 import com.sw.jspring.repository.HibernateSpeakerRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class SpeakerServiceImp implements SpeakerService {
 
-    private SpeakerRepository repository = new HibernateSpeakerRepositoryImpl();
+    private SpeakerRepository repository;
+
+    public SpeakerServiceImp(){
+        //
+    }
+
+    public SpeakerServiceImp(SpeakerRepository spRepository) {
+        this.repository = spRepository;
+    }
+
+    @Autowired
+    public void setRepository(SpeakerRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Speaker>FindAll(){
