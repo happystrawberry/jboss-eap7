@@ -1,12 +1,20 @@
 package com.sw.jspring.repository;
 import com.sw.jspring.model.Speaker;
+import com.sw.jspring.util.CalendarFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+
 
 @Repository("speakerRepository")
 public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
+
+    @Autowired
+    private Calendar mycal;
 
     @Override
     public List<Speaker>FindAll(){
@@ -15,7 +23,7 @@ public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
         speaker.setFirstname("Bose");
         speaker.setLastname("Smith");
         speakers.add(speaker);
+        System.out.println(mycal.getTime());
         return speakers;
     }
-
 }
