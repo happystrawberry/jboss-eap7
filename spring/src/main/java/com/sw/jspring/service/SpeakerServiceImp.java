@@ -8,26 +8,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("speakerService")
 public class SpeakerServiceImp implements SpeakerService {
 
-    private SpeakerRepository repository;
+    private SpeakerRepository repository = new HibernateSpeakerRepositoryImpl();
 
-    public SpeakerServiceImp(){
-        //
-    }
-
-    public SpeakerServiceImp(SpeakerRepository spRepository) {
-        this.repository = spRepository;
-    }
-
-    @Autowired
-    public void setRepository(SpeakerRepository repository) {
-        this.repository = repository;
-    }
 
     @Override
     public List<Speaker>FindAll(){
         return repository.FindAll();
     }
+
+
 }
