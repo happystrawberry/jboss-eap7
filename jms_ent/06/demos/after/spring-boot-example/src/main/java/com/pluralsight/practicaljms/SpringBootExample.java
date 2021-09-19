@@ -72,6 +72,12 @@ public class SpringBootExample {
         return converter;
     }
 
+
+
+
+
+
+
     @Bean
     @Primary
     public JmsTemplate queueJmsTemplate(
@@ -85,6 +91,11 @@ public class SpringBootExample {
         jmsTemplate.setExplicitQosEnabled(true);
         return jmsTemplate;
     }
+
+
+
+
+
 
     @Bean
     public JmsTemplate topicJmsTemplate(
